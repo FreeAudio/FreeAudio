@@ -1,2 +1,57 @@
-<p>FreeAudio Demo Page</p>
-<p> This is a demo page.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FreeAudio Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    input[type="file"] {
+      margin: 1rem 0;
+    }
+    .audio-container {
+      margin-top: 2rem;
+    }
+    .info {
+      margin-top: 1rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎧 FreeAudio Demo</h1>
+  <p>上传一个音频文件，点击播放体验！</p>
+
+  <input type="file" id="audio-upload" accept="audio/*" />
+
+  <div class="audio-container" id="audio-container" style="display: none;">
+    <audio id="audio-player" controls></audio>
+    <div class="info" id="file-info"></div>
+  </div>
+
+  <script>
+    const uploadInput = document.getElementById('audio-upload');
+    const audioContainer = document.getElementById('audio-container');
+    const audioPlayer = document.getElementById('audio-player');
+    const fileInfo = document.getElementById('file-info');
+
+    uploadInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        audioPlayer.src = url;
+        fileInfo.textContent = `文件名: ${file.name} | 大小: ${(file.size / 1024).toFixed(1)} KB`;
+        audioContainer.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
