@@ -109,140 +109,250 @@
               <font color="000093">Timing-controlled Long-Form Audio Generation</font>
             </h2>
 
+            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+              <thead>
+                <tr>
+                  <td width="50%">
+                    <font color="061E61">
+                      <b>Text prompt</b><br>
+                      Birds chirp in the background as a man speaks, followed by a dog barking. Later, a car speeds by,
+                      and a child laughs in the distance.
+                    </font>
+                  </td>
+                  <td width="50%">
+                    <font color="061E61">
+                      <b>Timing prompt</b><br>
+                      1. 0s - 10s. Birds chirping in the background. <br>
+                      2. 0s - 6s. Man speaking. <br>
+                      3. 6s - 10s. Dog barking. <br>
+                      4. 10s - 14s. A car speeds by on a nearby road. <br>
+                      5. 14s - 20s. A child laughs in the distance.
+                    </font>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2" align="center">
+                    <audio controls style="width: 100%;">
+                      <source src="samples/tc_lf_ag/demo_01.wav" autoplay />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center">
+                    <img src="samples/tc_lf_ag/demo_01.png" style="width: 82%; margin-left: 4.25%;" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <br></br>
+            <h2 id="Timing-Controlled Audio Generation">
+              <font color="000093">Timing-Controlled Audio Generation</font>
+            </h2>
 
-              <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
-                <thead>
-                  <tr>
-                    <td width="50%">
-                      <font color="061E61">
-                        <b>Text prompt</b><br>
-                        Birds chirp in the background as a man speaks, followed by a dog barking. Later, a car speeds by,
-                        and a child laughs in the distance.
-                      </font>
-                    </td>
-                    <td width="50%">
-                      <font color="061E61">
-                        <b>Timing prompt</b><br>
-                        1. 0s - 10s. Birds chirping in the background. <br>
-                        2. 0s - 6s. Man speaking. <br>
-                        3. 6s - 10s. Dog barking. <br>
-                        4. 10s - 14s. A car speeds by on a nearby road. <br>
-                        5. 14s - 20s. A child laughs in the distance.
-                      </font>
-                    </td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td colspan="2" align="center">
-                      <audio controls style="width: 100%;">
-                        <source src="samples/tc_lf_ag/demo_01.wav" autoplay />
-                        Your browser does not support the audio element.
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" width="33%">
+                    <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
+                        music</em>.</font>
+                  </th>
+                  <th scope="col" width="33%">
+                    <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
+                        singing</em>.</font>
+                  </th>
+                  <th scope="col" width="33%">
+                    <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
+                        style="color:red;">narration, monologue</em>.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
+                  </th>
+                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
+                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
+                </tr>
+                <tr>
+                  <th scope="row"><audio controls="controls">
+                      <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
+                      browser
+                      does not support the audio element.
+                    </audio></th>
+                  <td><audio controls="controls">
+                      <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
+                      browser does not support the audio element.
+                    </audio></td>
+                  <td><audio controls="controls">
+                      <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
+                        autoplay />Your browser does not support the audio element.
+                    </audio></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <br></br>
+            <h2 id="Long-Form Audio Generation">
+              <font color="000093">Long-Form Audio Generation</font>
+            </h2>
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="4" width="100%">
+                    <font color="061E61">Prompt: The low quality recording features a lullaby that consists of soft bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">MusicGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_freeaudio.wav" autoplay />
                       </audio>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2" align="center">
-                      <img src="samples/tc_lf_ag/demo_01.png" width="100%" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_musicgen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="4" width="100%">
+                    <font color="061E61">Prompt: This is an instrumental cover of a ballad piece. The harp is gently playing the melody with improvisational touches differing from the original version. There is a calming and soothing atmosphere to this piece. This music could be playing in the background at a hotel or a spa resort.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">MusicGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/02_freeaudio.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/02_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/02_musicgen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/02_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="4" width="100%">
+                    <font color="061E61">Prompt: A man shouting as another man talks in the background while a series of gunshots fire and footsteps running on concrete followed by guns cocking and a dog growling.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">AudioGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_freeaudio.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_musicgen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
 
-              <br></br>
-              <h2 id="Text-Guided Audio Style Transfer">
-                <font color="000093">Timing-Controlled Audio Generation</font>
-              </h2>
-
-              <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-                <thead>
-                  <tr>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
-                          music</em>.</font>
-                    </th>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
-                          singing</em>.</font>
-                    </th>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
-                          style="color:red;">narration, monologue</em>.</font>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
-                    </th>
-                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
-                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
-                        browser
-                        does not support the audio element.
-                      </audio></th>
-                    <td><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
-                        browser does not support the audio element.
-                      </audio></td>
-                    <td><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
-                          autoplay />Your browser does not support the audio element.
-                      </audio></td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <br></br>
-              <h2 id="Text-Guided Audio Style Transfer">
-                <font color="000093">Long-Form Audio Generation</font>
-              </h2>
-
-              <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-                <thead>
-                  <tr>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
-                          music</em>.</font>
-                    </th>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
-                          singing</em>.</font>
-                    </th>
-                    <th scope="col" width="33%">
-                      <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
-                          style="color:red;">narration, monologue</em>.</font>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
-                    </th>
-                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
-                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
-                        browser
-                        does not support the audio element.
-                      </audio></th>
-                    <td><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
-                        browser does not support the audio element.
-                      </audio></td>
-                    <td><audio controls="controls">
-                        <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
-                          autoplay />Your browser does not support the audio element.
-                      </audio></td>
-                  </tr>
-                </tbody>
-              </table>
-              
           </section>
         </article>
       </main>
