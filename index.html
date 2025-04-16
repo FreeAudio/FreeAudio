@@ -29,50 +29,68 @@
         <article itemscope itemtype="https://schema.org/BlogPosting">
           <br></br>
           <h1 itemprop="headline" align="center">
-            <font color="000093" size="7">FreeAudio: Training-Free Timing Planning for Controllable Long-Form Text-to-Audio Generation</br>
+            <font color="000093" size="7">FreeAudio: Training-Free Timing Planning for Controllable Long-Form
+              Text-to-Audio Generation</br>
             </font>
           </h1>
           <br></br>
           <p style="line-height:1" align="center"><b>
-            <font color="061E61">Anonymous Author(s)</font>
-          </b></p>
+              <font color="061E61">Anonymous Author(s)</font>
+            </b></p>
           <section itemprop="entry-text">
             <br>
             <h2 id="abstract">
               <font color="000093">Abstract</font>
             </h2>
             <p style="text-align: justify;">
-                <font color="061E61">
-                  Text-to-audio (T2A) generation has achieved promising results with the recent progress of generative models. 
-                  However, because of the limited quality and quantity of temporally-aligned audio-text data pairs, existing T2A methods usually face challenges when handling the complex text prompts that contain precise timing control, 
-                  <i>e.g.</i>, <i>owl hooted at 2.4s–5.2s</i>. 
-                  Recent works have explored data augmentation techniques or taken timing conditions as model input to enable timing-conditioned 10-second T2A generation, while their synthesis quality is still limited.
-                  In this work, we propose a novel training-free timing-controlled T2A framework, FreeAudio, making the first attempt to enable 
-                  <i>timing-controlled long-form T2A generation</i>, 
-                  <i>e.g.</i>, 
-                  <i>owl hooted at 2.4s–5.2s and crickets chirping at 0s–24s</i>.
-                  Specifically, we first employ LLM for a timing-to-window planning, decomposing the text prompts with complex timing control into multiple time windows of varying lengths. 
-                  Then we introduce: 1) decoupling and aggregating attention control for precise timing control capabilities; 
-                  2) contextual latent composition and reference guidance for coherent long-form generation capabilities, respectively.
-                  Extensive experiments show that: 
-                  1) FreeAudio achieves a new record of timing-conditioned T2A synthesis quality among training-free methods and is comparable to state-of-the-art training-based method; 
-                  2) FreeAudio demonstrates comparable long-form generation quality with training-based Stable Audio and paves the way for timing-controlled long-form T2A synthesis.
-                  Our demo samples can be visited at: 
-                  <a href="https://freeaudio.github.io/FreeAudio/" target="_blank">https://freeaudio.github.io/FreeAudio/</a>.
-                </font>
+              <font color="061E61">
+                Text-to-audio (T2A) generation has achieved promising results with the recent progress of generative
+                models.
+                However, because of the limited quality and quantity of temporally-aligned audio-text data pairs,
+                existing T2A methods usually face challenges when handling the complex text prompts that contain precise
+                timing control,
+                <i>e.g.</i>, <i>owl hooted at 2.4s–5.2s</i>.
+                Recent works have explored data augmentation techniques or taken timing conditions as model input to
+                enable timing-conditioned 10-second T2A generation, while their synthesis quality is still limited.
+                In this work, we propose a novel training-free timing-controlled T2A framework, FreeAudio, making the
+                first attempt to enable
+                <i>timing-controlled long-form T2A generation</i>,
+                <i>e.g.</i>,
+                <i>owl hooted at 2.4s–5.2s and crickets chirping at 0s–24s</i>.
+                Specifically, we first employ LLM for a timing-to-window planning, decomposing the text prompts with
+                complex timing control into multiple time windows of varying lengths.
+                Then we introduce: 1) decoupling and aggregating attention control for precise timing control
+                capabilities;
+                2) contextual latent composition and reference guidance for coherent long-form generation capabilities,
+                respectively.
+                Extensive experiments show that:
+                1) FreeAudio achieves a new record of timing-conditioned T2A synthesis quality among training-free
+                methods and is comparable to state-of-the-art training-based method;
+                2) FreeAudio demonstrates comparable long-form generation quality with training-based Stable Audio and
+                paves the way for timing-controlled long-form T2A synthesis.
+                Our demo samples can be visited at:
+                <a href="https://freeaudio.github.io/FreeAudio/"
+                  target="_blank">https://freeaudio.github.io/FreeAudio/</a>.
+              </font>
             </p>
 
             <h2 id="note">
               <font color="000093">Contribution</font>
             </h2>
             <li>
-              <font color="061E61"> We propose FreeAudio, the first training-free text-to-audio framework that enables both precise temporal control and coherent long-form generation from complex natural language prompts.</font>
+              <font color="061E61"> We propose FreeAudio, the first training-free text-to-audio framework that enables
+                both precise temporal control and coherent long-form generation from complex natural language prompts.
+              </font>
             </li>
             <li>
-              <font color="061E61"> To achieve fine-grained alignment without training, we introduce Decoupling & Aggregating Attention Control and Contextual Latent Composition, along with Reference Guidance for global consistency. </font>
+              <font color="061E61"> To achieve fine-grained alignment without training, we introduce Decoupling &
+                Aggregating Attention Control and Contextual Latent Composition, along with Reference Guidance for
+                global consistency. </font>
             </li>
             <li>
-              <font color="061E61"> Despite requiring no training or supervision, FreeAudio delivers competitive or superior performance in both temporal precision and structural coherence across extensive evaluations.</font>
+              <font color="061E61"> Despite requiring no training or supervision, FreeAudio delivers competitive or
+                superior performance in both temporal precision and structural coherence across extensive evaluations.
+              </font>
             </li>
 
             <br></br>
@@ -80,806 +98,151 @@
               <p align="center"><img src="figure/framework.png" width="100%" class="center" /></p>
               <figcaption>
                 <p style="text-align: justify;">
-                  <font color="061E61"><b>Figure 1:</b> Left: LLM Planning. Right: Timing-Controlled Generation with Proposed Decoupling and Aggregating Attention Control.
+                  <font color="061E61"><b>Figure 1:</b> Left: LLM Planning. Right: Timing-Controlled Generation with
+                    Proposed Decoupling and Aggregating Attention Control.
                 </p>
               </figcaption>
             </figure>
 
-            <br></br>
+            <br>
             <h2 id="Timing-controlled Long-Form Audio Generation">
               <font color="000093">Timing-controlled Long-Form Audio Generation</font>
             </h2>
 
-            <p>
-              <b>
-                <font color="061E61">Example</font>
-              </b>
-            </p>
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="100%">
-                    <font color="061E61">Birds chirp in the background as a man speaks, followed by a dog barking. Later, a car speeds by, and a child laughs in the distance.</font>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/A man is speaking under the water.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td scope="row">
-                    <img src="samples/demo_01-01.png" width="100%"/>
-                  </td>
-                </tr>
-              </tbody>
 
-            <p><b>
-                <font color="061E61">Long Samples:</font>
-              </b></p>
+              <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+                <thead>
+                  <tr>
+                    <td width="50%">
+                      <font color="061E61">
+                        <b>Text prompt</b><br>
+                        Birds chirp in the background as a man speaks, followed by a dog barking. Later, a car speeds by,
+                        and a child laughs in the distance.
+                      </font>
+                    </td>
+                    <td width="50%">
+                      <font color="061E61">
+                        <b>Timing prompt</b><br>
+                        1. 0s - 10s. Birds chirping in the background. <br>
+                        2. 0s - 6s. Man speaking. <br>
+                        3. 6s - 10s. Dog barking. <br>
+                        4. 10s - 14s. A car speeds by on a nearby road. <br>
+                        5. 14s - 20s. A child laughs in the distance.
+                      </font>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2" align="center">
+                      <audio controls style="width: 100%;">
+                        <source src="samples/tc_lf_ag/demo_01.wav" autoplay />
+                        Your browser does not support the audio element.
+                      </audio>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="center">
+                      <img src="samples/tc_lf_ag/demo_01.png" width="100%" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Cat gently meowing and purring in long intervels.</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Peaceful and calming ambient music with singing bowl and other instruments.
-                    </font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Nature environmental noise with various bird vocalization, high fidelity,
-                      children playing far away and light wind.</font>
-                  </td>
+              <br></br>
+              <h2 id="Text-Guided Audio Style Transfer">
+                <font color="000093">Timing-Controlled Audio Generation</font>
+              </h2>
 
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/5_long_audio/Cat gently meowing and purring in long intervels.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/5_long_audio/Peaceful and calming ambient music with singing bowl and other instruments.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/Nature environmental noise with various bird vocalization, high fidelity, children playing far away and light wind.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
+              <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                <thead>
+                  <tr>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
+                          music</em>.</font>
+                    </th>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
+                          singing</em>.</font>
+                    </th>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
+                          style="color:red;">narration, monologue</em>.</font>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
+                    </th>
+                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
+                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
+                        browser
+                        does not support the audio element.
+                      </audio></th>
+                    <td><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
+                        browser does not support the audio element.
+                      </audio></td>
+                    <td><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio></td>
+                  </tr>
+                </tbody>
+              </table>
 
-                </tr>
-              </tbody>
-            </table>
+              <br></br>
+              <h2 id="Text-Guided Audio Style Transfer">
+                <font color="000093">Long-Form Audio Generation</font>
+              </h2>
 
-            <p><b>
-                <font color="061E61">Acoustic Environment Control:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A man is speaking </font>in a <em style="color:red;">huge room</em>.
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A man is speaking </font>in a <em style="color:red;">small room</em>.
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A man is speaking </font>in a <em style="color:red;">studio</em>.
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/1_acoustic_environment/huge.wav" autoplay />
-                      Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/1_acoustic_environment/small_room.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/1_acoustic_environment/professional studio.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p><b>
-                <font color="061E61">Material Control:</font>
-              </b></p>
-            <!--
-<p><em><font color="061E61">Sample 2: And it was a matter of course that in the Middle Ages, when the craftsmen took care that beautiful form should always be a part of their productions whatever they were, </font></em></p>
--->
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Chopping <em style="color:red;">tomatos</em> </font>on a <em
-                      style="color:red;">wooden</em> table.</em>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Chopping <em style="color:red;">meat</em> </font>on a <em
-                      style="color:red;">wooden</em> table.
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Chopping <em style="color:red;">potatos</em> </font>on a <em
-                      style="color:red;">metal</em> table.
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/2_material_control/Chopping tomatos on a wooden table.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/2_material_control/Chopping meat on a wooden table sound.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/2_material_control/Chopping patatos on a metal table.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <p><b>
-                <font color="061E61">Pitch Control:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Sine wave </font>with <em style="color:red;">low</em> pitch.
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Sine wave </font>with <em style="color:red;">medium</em> pitch.
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Sine wave </font>with <em style="color:red;">high</em> pitch.</em>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/3_controlpitch/Sin wave with low pitch.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/3_controlpitch/Sin wave with medium pitch.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/2_humantextprompt/3_controlpitch/Sin wave with high pitch.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p><b>
-                <font color="061E61">Temporal Order Control:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A racing car is <em style="color:red;">passing by and disappear</em>.</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A female is speaking <em style="color:red;">followed by</em> footstep sound.
-                    </font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Wooden table tapping sound <em style="color:red;">followed by</em> water
-                      pouring sound.</font>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/4_temporal_order/A racing car is passing by and disappear.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/4_temporal_order/A female is speaking followed by footstep sound.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/2_humantextprompt/4_temporal_order/Wooden table tapping sound followed by water pouring sound.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p><b>
-                <font color="061E61">Label-to-Audio Generation:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">A capella</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Babbling</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Burping, eructation</font>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/A capella.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/Babbling.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/Burping, eructation.wav" autoplay />Your browser
-                      does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Eruption</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Gasp</font>
-                  </td>
-                  <td scope="col" width="33%">
-                    <font color="061E61">Fart</font>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/Eruption.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/Gasp.wav" autoplay />Your browser does not support
-                      the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/1_text2audio/3_labelprompt/Fart.wav" autoplay />Your browser does not support
-                      the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p><b>
-                <font color="061E61">Unconditional Generation:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <td scope="col" width="33%">
-                    <font color="061E61">"Null"</font>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row"><audio controls="controls">
-                      <source src="samples/3_unconditional_generation_feels like the machine is dreaming/0.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <br></br>
-            <h2 id="TTA Generation with ChatGPT Text Prompt">
-              <font color="000093">TTA Generation with ChatGPT Text Prompt</font>
-            </h2>
-
-            <p><b>
-                <font color="061E61">Short Samples:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Human Question to ChatGPT</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Simplified ChatGPT Answer</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">AudioLDM</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Describe the sound of the battlefiled</th>
-                  <td>Battlefield scene, continuous roar of artillery and gunfire, high fidelity, the sharp crack of
-                    bullets, the thundering explosions of bombs, and the screams of wounded soldiers.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/short_audio/Battlefield scene, continuous roar of artillery and gunfire, high fidelity, the sharp crack of bullets, the thundering explosions of bombs, and the screams of wounded soldiers.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <td>Describe what does a pop music sound</th>
-                  <td>Pop music that upbeat, catchy, and easy to listen, high fidelity, with simple melodies, electronic
-                    instruments and polished production.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/short_audio/Pop music that upbeat, catchy, and easy to listen, high fidelity, with simple melodies, electronic instruments and polished production.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <td>Describe the sound of the ocean</th>
-                  <td>The steady crashing of waves against the shore,high fidelity, the whooshing sound of water
-                    receding back into the ocean, the sound of seagulls and other coastal birds, and the distant sound
-                    of ships or boats.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/short_audio/The steady crashing of waves against the shore,high fidelity, the whooshing sound of water receding back into the ocean, the sound of seagulls and other coastal birds, and the distant sound of ships or boats.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p><b>
-                <font color="061E61">Long Samples:</font>
-              </b></p>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Human Question to ChatGPT</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Simplified ChatGPT Answer</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">AudioLDM</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Describe the sound of the outer space</th>
-                  <td>Radio emissions from stars, planets, galaxies and other celestial bodies, high fidelity, as well
-                    as the sounds of solar winds and cosmic rays.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/long_audio/Radio emissions from stars, planets, galaxies and other celestial bodies, high fidelity,, as well as the sounds of solar winds and cosmic rays.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <td>Describe what does a dance music sound with at most 30 words</th>
-                  <td>Dance music with strong, upbeat tempo, and repetitive rhythms, include sub-genres like house,
-                    techno, EDM, trance, and many more.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/long_audio/Dance music with strong, upbeat tempo, and repetitive rhythms, include sub-genres like house, techno, EDM, trance, and many more.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <td>Describe the sound of the factory</th>
-                  <td>Loud and chaotic. Hum and buzz of machinery such as power tools, high fidelity. Clanking and
-                    clattering of metal parts, the whirring of motors and engines, and the beeping and alarms of various
-                    instruments.</td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/long_audio/Loud and chaotic. Hum and buzz of machinery such as power tools, high fidelity. Clanking and clattering of metal parts, the whirring of motors and engines, and the beeping and alarms of various instruments.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <td>Describe what does a scary music sound with at most 30 words</th>
-                  <td>Scary music with dissonant harmonies, irregular rhythms, and unconventional use of instruments.
-                  </td>
-                  <td><audio controls="controls">
-                      <source
-                        src="samples/1_text2audio/1_machinetextprompt/long_audio/Scary music with dissonant harmonies, irregular rhythms, and unconventional use of instruments.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <br></br>
-            <h2 id="Text-Guided Audio Style Transfer">
-              <font color="000093">Text-Guided Audio Style Transfer</font>
-            </h2>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
-                        music</em>.</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
-                        singing</em>.</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
-                        style="color:red;">narration, monologue</em>.</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
-                  </th>
-                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
-                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your browser
-                      does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <br></br>
-            <h2 id="Text-Guided Audio Inpainting with Original Text Prompt">
-              <font color="000093">Text-Guided Audio Inpainting with Original Text Prompt</font>
-            </h2>
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Unprocessed</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Inpainting result</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Ground-Truth</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img src="samples/5_inpainting/audio_removed_png/YfvOZ_L5EY0k.png" width="90%"></th>
-                  <th scope="row"><img src="samples/5_inpainting/audio_inpainted_png/YfvOZ_L5EY0k.png" width="90%"></th>
-                  <th scope="row"><img src="samples/5_inpainting/gt_png/YfvOZ_L5EY0k.png" width="90%"></th>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_removed/YfvOZ_L5EY0k.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></th>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_inpainted/YfvOZ_L5EY0k.wav" autoplay />Your browser does
-                      not support the audio element.
-                    </audio></th>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/5_inpainting/gt/YfvOZ_L5EY0k.wav" autoplay />Your browser does not support
-                      the audio element.
-                    </audio></th>
-                </tr>
-                <tr>
-                  <td><img src="samples/5_inpainting/audio_removed_png/YQ93n3dvaaTI.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/audio_inpainted_png/YQ93n3dvaaTI.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/gt_png/YQ93n3dvaaTI.png" width="90%"></td>
-
-                </tr>
-                <tr>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_removed/YQ93n3dvaaTI.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_inpainted/YQ93n3dvaaTI.wav" autoplay />Your browser does
-                      not support the audio element.
-                    </audio></td>
-
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/gt/YQ93n3dvaaTI.wav" autoplay />Your browser does not support
-                      the audio element.
-                    </audio></td>
-
-                </tr>
-                <tr>
-
-                  <td><img src="samples/5_inpainting/audio_removed_png/YxQVmVBO8YJc.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/audio_inpainted_png/YxQVmVBO8YJc.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/gt_png/YxQVmVBO8YJc.png" width="90%"></td>
-
-                </tr>
-                <tr>
-
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_removed/YxQVmVBO8YJc.wav" autoplay />Your browser does not
-                      support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_inpainted/YxQVmVBO8YJc.wav" autoplay />Your browser does
-                      not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/gt/YxQVmVBO8YJc.wav" autoplay />Your browser does not support
-                      the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <br></br>
-            <h2 id="Text-Guided Audio Inpainting with Diverse Text Prompt">
-              <font color="000093">Text-Guided Audio Inpainting with Diverse Text Prompt</font>
-            </h2>
-
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Unprocessed</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Ground-Truth</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">A cat is meowing.</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img src="samples/5_inpainting/audio_removed_png/YxQVmVBO8YJc.png" width="90%"></th>
-                  <td><img src="samples/5_inpainting/gt_png/YxQVmVBO8YJc.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/audio_different_prompt_png/YxQVmVBO8YJc_1.png" width="90%"></td>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_removed/YxQVmVBO8YJc.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/gt/YxQVmVBO8YJc.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_different_prompt/A cat is meowing.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Ambient music</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">A man is speaking with bird calls in the background</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Raining with wind blowing.</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img src="samples/5_inpainting/audio_different_prompt_png/YxQVmVBO8YJc_2.png"
-                      width="90%"></th>
-                  <td><img src="samples/5_inpainting/audio_different_prompt_png/YxQVmVBO8YJc_3.png" width="90%"></td>
-                  <td><img src="samples/5_inpainting/audio_different_prompt_png/YxQVmVBO8YJc_4.png" width="90%"></td>
-                </tr>
-                <tr>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_different_prompt/Ambient music.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></td>
-                  <th scope="row"><audio controls="controls">
-                      <source
-                        src="samples/5_inpainting/audio_different_prompt/A man is speaking with bird calls in the background.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/5_inpainting/audio_different_prompt/Raining with wind blowing.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-
-            <br></br>
-            <h2 id="Text-Guided Audio Super-Resolution">
-              <font color="000093">Text-Guided Audio Super-Resolution</font>
-            </h2>
-            <p>The following three rows show unprocessed audio, super resolution result, and Groud truth audio, respectively.</p>
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Violin</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Baby Crying</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Female Speech</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><img
-                      src="samples/4_super_resolution/super_resolution/low_resolution_png/YJQ4RalNSjJk_02 copy.png"
-                      width="90%"></th>
-                  <td><img src="samples/4_super_resolution/super_resolution/low_resolution_png/YniwgMbB6tpQ_01 copy.png"
-                      width="90%"></td>
-                  <td><img src="samples/4_super_resolution/super_resolution/low_resolution_png/YrE6BJ0Bo4w4_01 copy.png"
-                      width="90%"></td>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/low_resolution/YJQ4RalNSjJk_02 copy.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/low_resolution/YniwgMbB6tpQ_01 copy.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/low_resolution/YrE6BJ0Bo4w4_01 copy.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <th scope="row"><img
-                      src="samples/4_super_resolution/super_resolution/high_resolution_png/YJQ4RalNSjJk_02.png"
-                      width="90%"></th>
-                  <td><img src="samples/4_super_resolution/super_resolution/high_resolution_png/YniwgMbB6tpQ_01.png"
-                      width="90%"></td>
-                  <td><img src="samples/4_super_resolution/super_resolution/high_resolution_png/YrE6BJ0Bo4w4_01.png"
-                      width="90%"></td>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/high_resolution/YJQ4RalNSjJk_02.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/high_resolution/YniwgMbB6tpQ_01.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/high_resolution/YrE6BJ0Bo4w4_01.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-                <tr>
-                  <th scope="row"><img
-                      src="samples/4_super_resolution/super_resolution/ground_truth_png/YJQ4RalNSjJk_01.png"
-                      width="90%"></th>
-                  <td><img src="samples/4_super_resolution/super_resolution/ground_truth_png/YniwgMbB6tpQ_01.png"
-                      width="90%"></td>
-                  <td><img src="samples/4_super_resolution/super_resolution/ground_truth_png/YrE6BJ0Bo4w4_01.png"
-                      width="90%"></td>
-                </tr>
-                <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/ground_truth/YJQ4RalNSjJk_01.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/ground_truth/YniwgMbB6tpQ_01.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/4_super_resolution/super_resolution/ground_truth/YrE6BJ0Bo4w4_01.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
-                </tr>
-              </tbody>
-            </table>
-
-            </p>
-
-            <table label="more_demos" class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Label to sound generation</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">Generate music with: "A music is made by []".</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-
-                    <video width="500" controls>
-                      <source src="Sound Effects.mp4" type="video/mp4">
-                      Your browser does not support HTML video.
-                    </video>
-
-                  </td>
-                  <td>
-                    <video width="500" controls>
-                      <source src="music.mp4" type="video/mp4">
-                      Your browser does not support HTML video.
-                    </video>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <hr>
-            <h2 id="Other comments">
-              <font color="000093">Other comments</font>
-            </h2>
-            <div class="container">
-              <p>
-                1. We share <a href="https://github.com/haoheliu/audioldm_eval">our code for model evaluation on github</a>, which aims to unify audio generation model evaluation for easier comparison.
-              </p>
-              <p>
-                <!-- 2. We are double checking the copy-right issue on open-sourcing our pretrained model. This will not take too long. -->
-                2. We are confirming the data-related copyright issue, after which the pretrained models will be released.
-              </p>
-            </div>
+              <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+                <thead>
+                  <tr>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
+                          music</em>.</font>
+                    </th>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
+                          singing</em>.</font>
+                    </th>
+                    <th scope="col" width="33%">
+                      <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
+                          style="color:red;">narration, monologue</em>.</font>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
+                    </th>
+                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
+                    <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
+                        browser
+                        does not support the audio element.
+                      </audio></th>
+                    <td><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
+                        browser does not support the audio element.
+                      </audio></td>
+                    <td><audio controls="controls">
+                        <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
+                          autoplay />Your browser does not support the audio element.
+                      </audio></td>
+                  </tr>
+                </tbody>
+              </table>
+              
           </section>
         </article>
       </main>
@@ -933,9 +296,6 @@
     <script type="text/javascript" async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
       </script>
-
-
-
 
 </body>
 
