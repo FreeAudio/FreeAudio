@@ -154,19 +154,19 @@
               <font color="000093">Timing-Controlled Audio Generation</font>
             </h2>
 
-            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
               <thead>
                 <tr>
-                  <td colspan="5">
-                    <table style="width: 100%;">
+                  <td colspan="5" style="border: 1px solid #ccc;">
+                    <table style="width: 100%; border-collapse: collapse;">
                       <tr>
-                        <td width="50%">
+                        <td width="50%" style="border-right: 1px solid #ccc; padding: 8px;">
                           <font color="061E61">
                             <b>Text prompt</b><br>
                             A bathtub is being filled or washed.
                           </font>
                         </td>
-                        <td width="50%">
+                        <td width="50%" style="padding: 8px;">
                           <font color="061E61">
                             <b>Timing prompt</b><br>
                             Bathtub (filling or washing): 0.0s - 6.598s <br>
@@ -181,34 +181,53 @@
             
               <tbody>
                 <tr>
-                  <th style="text-align: center;">FreeAudio(Ours)</th>
-                  <td style="text-align: center;">AudioLDM2</td>
-                  <td style="text-align: center;">Tango</td>
-                  <td style="text-align: center;">Stable Audio*</td>
-                  <td style="text-align: center;">Ground Truth</td>
+                  <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
+                  <td style="text-align: center; border: 1px solid #ccc;">AudioLDM2</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Tango</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
                 </tr>
+            
                 <tr>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/01/freeaudio.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/01/audioldm2.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/01/tango.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/01/sa.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/01/gt.png" style="width: 100%;" />
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
                       <source src="./samples/tc_ag/01/freeaudio.wav" autoplay />
                     </audio>
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
                       <source src="./samples/tc_ag/01/audioldm2.wav" autoplay />
                     </audio>
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
                       <source src="./samples/tc_ag/01/tango.wav" autoplay />
                     </audio>
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
                       <source src="./samples/tc_ag/01/sa.wav" autoplay />
                     </audio>
                   </td>
-                  <td style="text-align: center;">
+                  <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
                       <source src="./samples/tc_ag/01/gt.wav" autoplay />
                     </audio>
@@ -216,7 +235,88 @@
                 </tr>
               </tbody>
             </table>
-
+            
+            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+              <thead>
+                <tr>
+                  <td colspan="5" style="border: 1px solid #ccc;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <tr>
+                        <td width="50%" style="border-right: 1px solid #ccc; padding: 8px;">
+                          <font color="061E61">
+                            <b>Text prompt</b><br>
+                            Music is playing and women and children are speaking, while water is gushing and bells are ringing.
+                          </font>
+                        </td>
+                        <td width="50%" style="padding: 8px;">
+                          <font color="061E61">
+                            <b>Timing prompt</b><br>
+                            Female speech, woman speaking: 0.008s - 1.701s <br>
+                            Child speech, kid speaking: 1.701s - 2.276s
+                          </font>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </thead>
+            
+              <tbody>
+                <tr>
+                  <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
+                  <td style="text-align: center; border: 1px solid #ccc;">AudioLDM2</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Tango</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
+                  <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
+                </tr>
+            
+                <tr>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/02/freeaudio.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/02/audioldm2.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/02/tango.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/02/sa.png" style="width: 100%;" />
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <img src="./samples/tc_ag/02/gt.png" style="width: 100%;" />
+                  </td>
+                </tr>
+            
+                <tr>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/02/freeaudio.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/02/audioldm2.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/02/tango.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/02/sa.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center; border: 1px solid #ccc;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/02/gt.wav" autoplay />
+                    </audio>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
             <!-- TODO -->
             <br></br>
