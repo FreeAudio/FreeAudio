@@ -17,7 +17,8 @@
   <title>FreeAudio: Training-Free Timing Planning for Controllable Long-Form Text-to-Audio Generation</title>
 </head>
 
-<body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%>
+<!-- <body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%> -->
+<body>
   <font size="5">
 
     <div class="container">
@@ -195,16 +196,149 @@
               </tbody>
             </table>
 
+            <!-- TODO -->
             <br></br>
-            <h2 id="Long-Form Audio Generation">
+            <h2 id="Long-Form Audio Generation"> 
               <font color="000093">Long-Form Audio Generation</font>
             </h2>
+            
+            Base means that the text prompt is entered directly without going through the LLM Planning process.
+            
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="5" width="100%">
+                    <font color="061E61">Prompt: An adult male is speaking and an audience is laughing.</font>
+                    <details>
+                      <summary style="cursor: pointer; color: #FF0000;">Planning Sub-Prompt (You can click me!)</summary>
+                      <font color="061E61">
+                        1. 0–7s: An adult male speaks calmly while audience members whisper softly in the background.<br>
+                        2. 7–11s: An adult male speaks with energy, accompanied by quiet murmurs and occasional giggles from the audience.<br>
+                        3. 11–15s: An adult male makes a statement as the audience begins to chuckle audibly in the background.<br>
+                        4. 15–19s: An adult male speaks as the audience bursts into loud laughter and lively reactions.<br>
+                        5. 19–26s: An adult male speaks with confidence while the audience chatters and laughs in the background.
+                      </font>
+                    </details>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <th scope="row" style="text-align: center;">FreeAudio(Base)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">AudioGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_freeaudio_plan.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_freeaudio_base.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_audiogen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="5" width="100%">
+                    <font color="061E61">Prompt: Food sizzles as a man speaks with music playing.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <th scope="row" style="text-align: center;">FreeAudio(Base)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">AudioGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_freeaudio_plan.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_freeaudio_base.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_musicgen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/00_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
 
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
                 <tr>
                   <th scope="col" colspan="4" width="100%">
-                    <font color="061E61">Prompt: The low quality recording features a lullaby that consists of soft bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
+                    <font color="061E61">Prompt: A man shouting as another man talks in the background while a series of gunshots fire and footsteps running on concrete followed by guns cocking and a dog growling.</font>
                   </th>
                 </tr>
               </thead>
@@ -212,10 +346,75 @@
                 <tr>
                   <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
                   <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">AudioGen</td>
+                  <td style="text-align: center;">Stable Audio Open</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_freeaudio.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_audioldm2.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_musicgen.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/03_sao.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+              <thead>
+                <tr>
+                  <th scope="col" colspan="5" width="100%">
+                    <font color="061E61">Prompt: The low quality recording features a lullaby that consists of soft bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" colspan="5" width="100%">
+                    <font color="FF0000"><em>Timing Planning</em></font><font color="061E61"></font>: The low quality recording features a lullaby that consists of soft bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
+                  <td style="text-align: center;">FreeAudio(Base)</td>
+                  <td style="text-align: center;">AudioLDM2</td>
                   <td style="text-align: center;">MusicGen</td>
                   <td style="text-align: center;">Stable Audio Open</td>
                 </tr>
                 <tr>
+                  <th scope="row" style="text-align: center;">
+                    <div>
+                      <audio controls style="width: 90%;">
+                        <source src="./samples/lf_ag/01_freeaudio.wav" autoplay />
+                      </audio>
+                    </div>
+                  </th>
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -302,57 +501,6 @@
               </tbody>
             </table>
             
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
-              <thead>
-                <tr>
-                  <th scope="col" colspan="4" width="100%">
-                    <font color="061E61">Prompt: A man shouting as another man talks in the background while a series of gunshots fire and footsteps running on concrete followed by guns cocking and a dog growling.</font>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" style="text-align: center;">FreeAudio(Ours)</th>
-                  <td style="text-align: center;">AudioLDM2</td>
-                  <td style="text-align: center;">AudioGen</td>
-                  <td style="text-align: center;">Stable Audio Open</td>
-                </tr>
-                <tr>
-                  <th scope="row" style="text-align: center;">
-                    <div>
-                      <audio controls style="width: 90%;">
-                        <source src="./samples/lf_ag/03_freeaudio.wav" autoplay />
-                      </audio>
-                    </div>
-                  </th>
-                
-                  <th scope="row" style="text-align: center;">
-                    <div>
-                      <audio controls style="width: 90%;">
-                        <source src="./samples/lf_ag/03_audioldm2.wav" autoplay />
-                      </audio>
-                    </div>
-                  </th>
-                
-                  <th scope="row" style="text-align: center;">
-                    <div>
-                      <audio controls style="width: 90%;">
-                        <source src="./samples/lf_ag/03_musicgen.wav" autoplay />
-                      </audio>
-                    </div>
-                  </th>
-                
-                  <th scope="row" style="text-align: center;">
-                    <div>
-                      <audio controls style="width: 90%;">
-                        <source src="./samples/lf_ag/03_sao.wav" autoplay />
-                      </audio>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-
           </section>
         </article>
       </main>
@@ -410,3 +558,16 @@
 </body>
 
 </html>
+
+<style>
+  body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
