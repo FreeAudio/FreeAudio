@@ -154,47 +154,69 @@
               <font color="000093">Timing-Controlled Audio Generation</font>
             </h2>
 
-            <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
+            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
               <thead>
                 <tr>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">drum beats</em> to <em style="color:red;">ambient
-                        music</em>.</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">trumpet</em> to <em style="color:red;">children
-                        singing</em>.</font>
-                  </th>
-                  <th scope="col" width="33%">
-                    <font color="061E61">From <em style="color:red;">sheep vocalization</em> to <em
-                        style="color:red;">narration, monologue</em>.</font>
-                  </th>
+                  <td colspan="5">
+                    <table style="width: 100%;">
+                      <tr>
+                        <td width="50%">
+                          <font color="061E61">
+                            <b>Text prompt</b><br>
+                            A bathtub is being filled or washed.
+                          </font>
+                        </td>
+                        <td width="50%">
+                          <font color="061E61">
+                            <b>Timing prompt</b><br>
+                            Bathtub (filling or washing): 0.0s - 6.598s <br>
+                            Bathtub (filling or washing): 6.748s - 10.0s
+                          </font>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
                 </tr>
               </thead>
+            
               <tbody>
                 <tr>
-                  <th scope="row"><img src="samples/2_style_transfer/gifs/6seconds/animation_music.gif" width="100%">
-                  </th>
-                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation.gif" width="100%"></td>
-                  <td><img src="samples/2_style_transfer/gifs/6seconds/animation_sheep.gif" width="100%"></td>
+                  <th style="text-align: center;">FreeAudio(Ours)</th>
+                  <td style="text-align: center;">AudioLDM2</td>
+                  <td style="text-align: center;">Tango</td>
+                  <td style="text-align: center;">Stable Audio*</td>
+                  <td style="text-align: center;">Ground Truth</td>
                 </tr>
                 <tr>
-                  <th scope="row"><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/Trumpet_to_ambient_music.wav" autoplay />Your
-                      browser
-                      does not support the audio element.
-                    </audio></th>
-                  <td><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/Untitled Session 2_mixdown.wav" autoplay />Your
-                      browser does not support the audio element.
-                    </audio></td>
-                  <td><audio controls="controls">
-                      <source src="samples/2_style_transfer/audio/sheep_vocalization_to_narration_monologue.wav"
-                        autoplay />Your browser does not support the audio element.
-                    </audio></td>
+                  <td style="text-align: center;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/01/freeaudio.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/01/audioldm2.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/01/tango.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/01/sa.wav" autoplay />
+                    </audio>
+                  </td>
+                  <td style="text-align: center;">
+                    <audio controls style="width: 90%;">
+                      <source src="./samples/tc_ag/01/gt.wav" autoplay />
+                    </audio>
+                  </td>
                 </tr>
               </tbody>
             </table>
+
 
             <!-- TODO -->
             <br></br>
