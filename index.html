@@ -69,9 +69,7 @@
                 methods and is comparable to state-of-the-art training-based method;
                 2) FreeAudio demonstrates comparable long-form generation quality with training-based Stable Audio and
                 paves the way for timing-controlled long-form T2A synthesis.
-                Our demo samples can be visited at:
-                <a href="https://freeaudio.github.io/FreeAudio/"
-                  target="_blank">https://freeaudio.github.io/FreeAudio/</a>.
+                
               </font>
             </p>
 
@@ -143,7 +141,47 @@
                 </tr>
                 <tr>
                   <td colspan="2" align="center">
-                    <img src="samples/tc_lf_ag/demo_01.png" style="width: 82%; margin-left: 4.25%;" />
+                    <img src="samples/tc_lf_ag/demo_01.png" style="width: 81.15%; margin-left: 4.12%;" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%;">
+              <thead>
+                <tr>
+                  <td width="50%">
+                    <font color="061E61">
+                      <b>Text prompt</b><br>
+                      In a quiet forest, the wind blows softly as birds chirp and a fire crackles nearby. Footsteps rustle through dry leaves, crickets chirp continuously, an owl calls briefly, and a stream flows steadily in the distance.
+                    </font>
+                  </td>
+                  <td width="50%">
+                    <font color="061E61">
+                      <b>Timing prompt</b><br>
+                      1. 0s - 10s. Forest wind blowing. <br>
+                      2. 0s - 4s. Birds chirping. <br>
+                      3. 4s - 6s. Wood burning. <br>
+                      4. 6s - 16s. Animal footsteps on dry leaves. <br>
+                      5. 10s - 16s. Crickets chirping. <br>
+                      6. 16s - 19s. Owl chirping. <br>
+                      7. 17s - 26s. Stream water flowing.
+                    </font>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="2" align="center">
+                    <audio controls style="width: 100%;">
+                      <source src="samples/tc_lf_ag/demo_02.wav" autoplay />
+                      Your browser does not support the audio element.
+                    </audio>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" align="center">
+                    <img src="samples/tc_lf_ag/demo_02.png" style="width: 81.15%; margin-left: 4.12%;" />
                   </td>
                 </tr>
               </tbody>
