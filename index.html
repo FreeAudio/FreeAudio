@@ -18,6 +18,7 @@
 </head>
 
 <!-- <body rightmargin="150" leftmargin="150" topmargin="100" bottommargin="100" line-height:160%> -->
+
 <body>
   <font size="5">
 
@@ -35,21 +36,21 @@
             </font>
           </h1>
           <br>
-          
+
           <p align="center" style="margin-top: -10px; margin-bottom: 20px;">
             <font color="#061E61" size="5.5"><b>| Accepted at ACM MultiMedia 2025 |</b></font>
           </p>
-          
+
           <p style="line-height:1" align="center"><b>
               <font color="#061E61">
-                Yuxuan Jiang<sup>1,2,*</sup>, 
-                Zehua Chen<sup>1,2,*</sup>, 
-                Zeqian Ju<sup>3,*</sup>, 
-                Chang Li<sup>2,3</sup>, 
-                Weibei Dou<sup>1</sup>, 
+                Yuxuan Jiang<sup>1,2,*</sup>,
+                Zehua Chen<sup>1,2,*</sup>,
+                Zeqian Ju<sup>3,*</sup>,
+                Chang Li<sup>2,3</sup>,
+                Weibei Dou<sup>1</sup>,
                 Jun Zhu<sup>1,&#x2709;</sup><br><br>
-                <sup>1</sup>Tsinghua University &nbsp;&nbsp; 
-                <sup>2</sup>Shengshu AI &nbsp;&nbsp; 
+                <sup>1</sup>Tsinghua University &nbsp;&nbsp;
+                <sup>2</sup>Shengshu AI &nbsp;&nbsp;
                 <sup>3</sup>University of Science and Technology of China<br><br>
                 &#x2709; <a href="mailto:dcszj@mail.tsinghua.edu.cn">dcszj@mail.tsinghua.edu.cn</a>
               </font>
@@ -85,7 +86,7 @@
                 methods and is comparable to state-of-the-art training-based method;
                 2) FreeAudio demonstrates comparable long-form generation quality with training-based Stable Audio and
                 paves the way for timing-controlled long-form T2A synthesis.
-                
+
               </font>
             </p>
 
@@ -113,8 +114,11 @@
               <p align="center"><img src="figure/framework.png" width="100%" class="center" /></p>
               <figcaption>
                 <p style="text-align: justify;">
-                  <font color="061E61"><b>Figure 1:</b> Left: LLM Planning. Right: Timing-Controlled Generation with
-                    Proposed Decoupling and Aggregating Attention Control.
+                  <font color="#061E61"><b>Figure 1:</b> <i>Left</i>: Planning Stage, where the LLM parses the text
+                    prompt and timing prompts into a sequence of non-overlapping time windows, each associated with a
+                    recaptioned prompt. <i>Right</i>: Generation Stage, where the Decoupling & Aggregating Attention
+                    Control aligns each recaptioned prompt with its corresponding time window, enabling precise timing
+                    control in attention layers.
                 </p>
               </figcaption>
             </figure>
@@ -169,7 +173,9 @@
                   <td width="50%">
                     <font color="061E61">
                       <b>Text prompt</b><br>
-                      In a quiet forest, the wind blows softly as birds chirp and a fire crackles nearby. Footsteps rustle through dry leaves, crickets chirp continuously, an owl calls briefly, and a stream flows steadily in the distance.
+                      In a quiet forest, the wind blows softly as birds chirp and a fire crackles nearby. Footsteps
+                      rustle through dry leaves, crickets chirp continuously, an owl calls briefly, and a stream flows
+                      steadily in the distance.
                     </font>
                   </td>
                   <td width="50%">
@@ -209,7 +215,8 @@
                   <td width="50%">
                     <font color="061E61">
                       <b>Text prompt</b><br>
-                      A country music song with a strong, expressive male vocal leading the melody, accompanied by soft acoustic guitar and minimal instrumentation.
+                      A country music song with a strong, expressive male vocal leading the melody, accompanied by soft
+                      acoustic guitar and minimal instrumentation.
                     </font>
                   </td>
                   <td width="50%">
@@ -217,7 +224,8 @@
                       <b>Timing prompt</b><br>
                       1. 0s - 8s. Soft acoustic guitar strumming sets the rhythm. <br>
                       2. 8s - 16s. The male vocal enters, expressively leading the melody alongside the guitar. <br>
-                      6. 16s - 22s. The vocals rise emotionally while the acoustic guitar maintains a steady background. <br>
+                      6. 16s - 22s. The vocals rise emotionally while the acoustic guitar maintains a steady background.
+                      <br>
                       7. 22s - 26s. The song softens slightly, with the gentle guitar continuing to play.
                     </font>
                   </td>
@@ -239,13 +247,14 @@
                 </tr>
               </tbody>
             </table>
-            
+
             <br></br>
             <h2 id="Timing-Controlled Audio Generation">
               <font color="000093">Timing-Controlled Audio Generation</font>
             </h2>
 
-            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+            <table class="table" align="center"
+              style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
               <thead>
                 <tr>
                   <td colspan="5" style="border: 1px solid #ccc;">
@@ -269,7 +278,7 @@
                   </td>
                 </tr>
               </thead>
-            
+
               <tbody>
                 <tr>
                   <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
@@ -278,7 +287,7 @@
                   <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
                   <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <img src="./samples/tc_ag/01/freeaudio.png" style="width: 100%;" />
@@ -296,7 +305,7 @@
                     <img src="./samples/tc_ag/01/gt.png" style="width: 100%;" />
                   </td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
@@ -326,8 +335,9 @@
                 </tr>
               </tbody>
             </table>
-            
-            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+
+            <table class="table" align="center"
+              style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
               <thead>
                 <tr>
                   <td colspan="5" style="border: 1px solid #ccc;">
@@ -336,7 +346,8 @@
                         <td width="50%" style="border-right: 1px solid #ccc; padding: 8px;">
                           <font color="061E61">
                             <b>Text prompt</b><br>
-                            Music is playing and women and children are speaking, while water is gushing and bells are ringing.
+                            Music is playing and women and children are speaking, while water is gushing and bells are
+                            ringing.
                           </font>
                         </td>
                         <td width="50%" style="padding: 8px;">
@@ -351,7 +362,7 @@
                   </td>
                 </tr>
               </thead>
-            
+
               <tbody>
                 <tr>
                   <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
@@ -360,7 +371,7 @@
                   <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
                   <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <img src="./samples/tc_ag/02/freeaudio.png" style="width: 100%;" />
@@ -378,7 +389,7 @@
                     <img src="./samples/tc_ag/02/gt.png" style="width: 100%;" />
                   </td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
@@ -409,7 +420,8 @@
               </tbody>
             </table>
 
-            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+            <table class="table" align="center"
+              style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
               <thead>
                 <tr>
                   <td colspan="5" style="border: 1px solid #ccc;">
@@ -432,7 +444,7 @@
                   </td>
                 </tr>
               </thead>
-            
+
               <tbody>
                 <tr>
                   <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
@@ -441,7 +453,7 @@
                   <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
                   <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <img src="./samples/tc_ag/03/freeaudio.png" style="width: 100%;" />
@@ -459,7 +471,7 @@
                     <img src="./samples/tc_ag/03/gt.png" style="width: 100%;" />
                   </td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
@@ -490,7 +502,8 @@
               </tbody>
             </table>
 
-            <table class="table" align="center" style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
+            <table class="table" align="center"
+              style="table-layout: fixed; word-break: break-word; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
               <thead>
                 <tr>
                   <td colspan="5" style="border: 1px solid #ccc;">
@@ -515,7 +528,7 @@
                   </td>
                 </tr>
               </thead>
-            
+
               <tbody>
                 <tr>
                   <th style="text-align: center; border: 1px solid #ccc;">FreeAudio(Ours)</th>
@@ -524,7 +537,7 @@
                   <td style="text-align: center; border: 1px solid #ccc;">Stable Audio*</td>
                   <td style="text-align: center; border: 1px solid #ccc;">Ground Truth</td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <img src="./samples/tc_ag/04/freeaudio.png" style="width: 100%;" />
@@ -542,7 +555,7 @@
                     <img src="./samples/tc_ag/04/gt.png" style="width: 100%;" />
                   </td>
                 </tr>
-            
+
                 <tr>
                   <td style="text-align: center; border: 1px solid #ccc;">
                     <audio controls style="width: 90%;">
@@ -575,12 +588,12 @@
 
             <!-- TODO -->
             <br></br>
-            <h2 id="Long-Form Audio Generation"> 
+            <h2 id="Long-Form Audio Generation">
               <font color="000093">Long-Form Audio Generation</font>
             </h2>
-            
+
             Base means that the text prompt is entered directly without going through the LLM Planning process.
-            
+
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
                 <tr>
@@ -591,11 +604,16 @@
                         Planning Sub-Prompt (<span style="text-decoration: underline;">You can click me!</span>)
                       </summary>
                       <font color="061E61">
-                        1. 0–7s: An adult male speaks calmly while audience members whisper softly in the background.<br>
-                        2. 7–11s: An adult male speaks with energy, accompanied by quiet murmurs and occasional giggles from the audience.<br>
-                        3. 11–15s: An adult male makes a statement as the audience begins to chuckle audibly in the background.<br>
-                        4. 15–19s: An adult male speaks as the audience bursts into loud laughter and lively reactions.<br>
-                        5. 19–26s: An adult male speaks with confidence while the audience chatters and laughs in the background.
+                        1. 0–7s: An adult male speaks calmly while audience members whisper softly in the
+                        background.<br>
+                        2. 7–11s: An adult male speaks with energy, accompanied by quiet murmurs and occasional giggles
+                        from the audience.<br>
+                        3. 11–15s: An adult male makes a statement as the audience begins to chuckle audibly in the
+                        background.<br>
+                        4. 15–19s: An adult male speaks as the audience bursts into loud laughter and lively
+                        reactions.<br>
+                        5. 19–26s: An adult male speaks with confidence while the audience chatters and laughs in the
+                        background.
                       </font>
                     </details>
                   </th>
@@ -625,7 +643,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -633,7 +651,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -641,7 +659,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -659,13 +677,14 @@
                   <th scope="col" colspan="5" width="100%">
                     <font color="061E61">Prompt: Food sizzles as a man speaks with music playing.</font>
                     <details>
-                      <summary style="cursor: pointer; color: #FF0000; text-decoration: underline;">Planning Sub-Prompt</summary>
+                      <summary style="cursor: pointer; color: #FF0000; text-decoration: underline;">Planning Sub-Prompt
+                      </summary>
                       <font color="061E61">
-                      1. 0–7s: Food sizzles gently in a quiet kitchen environment.<br>
-                      2. 7–10s: A man speaks in a steady voice with sizzling sounds nearby.<br>
-                      3. 10–21s: Soft background music plays while food sizzles in the foreground.<br>
-                      4. 21–26s: An immersive blend of food sizzling, male speech, and melodic background music.<br>
-                    </font>
+                        1. 0–7s: Food sizzles gently in a quiet kitchen environment.<br>
+                        2. 7–10s: A man speaks in a steady voice with sizzling sounds nearby.<br>
+                        3. 10–21s: Soft background music plays while food sizzles in the foreground.<br>
+                        4. 21–26s: An immersive blend of food sizzling, male speech, and melodic background music.<br>
+                      </font>
                   </th>
                 </tr>
               </thead>
@@ -693,7 +712,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -701,7 +720,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -709,7 +728,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -725,12 +744,16 @@
               <thead>
                 <tr>
                   <th scope="col" colspan="5" width="100%">
-                    <font color="061E61">Prompt: A man shouting as another man talks in the background while a series of gunshots fire and footsteps running on concrete followed by guns cocking and a dog growling.</font>
+                    <font color="061E61">Prompt: A man shouting as another man talks in the background while a series of
+                      gunshots fire and footsteps running on concrete followed by guns cocking and a dog growling.
+                    </font>
                     <details>
-                      <summary style="cursor: pointer; color: #FF0000; text-decoration: underline;">Planning Sub-Prompt</summary>
+                      <summary style="cursor: pointer; color: #FF0000; text-decoration: underline;">Planning Sub-Prompt
+                      </summary>
                       <font color="061E61">
                         1. 0–6s: A man is shouting loudly in an open area, his voice echoing with urgency.<br>
-                        2. 6–11s: Another man murmurs softly in the background, his voice nearly drowned out by the surrounding noise.<br>
+                        2. 6–11s: Another man murmurs softly in the background, his voice nearly drowned out by the
+                        surrounding noise.<br>
                         3. 11–15s: Gunshots fire sharply through the air, creating a tense and chaotic soundscape.<br>
                         4. 15–19s: Footsteps rush across a concrete surface with rapid, uneven pacing.<br>
                         5. 19–26s: Guns cock mechanically as dogs growl deeply nearby.<br>
@@ -763,7 +786,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -771,7 +794,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -779,7 +802,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -795,9 +818,11 @@
               <thead>
                 <tr>
                   <th scope="col" colspan="5" width="100%">
-                    <font color="061E61">Prompt: The low quality recording features a lullaby that consists of soft bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
+                    <font color="061E61">Prompt: The low quality recording features a lullaby that consists of soft
+                      bells melody. It sounds like a music box melody and it is relaxing, passionate and mellow.</font>
                     <details>
-                      <summary style="cursor: pointer; text-decoration: underline; color: #FF0000;">Planning Sub-Prompt</summary>
+                      <summary style="cursor: pointer; text-decoration: underline; color: #FF0000;">Planning Sub-Prompt
+                      </summary>
                       <font color="061E61">
                         1. 0–6s: A soft lullaby plays with bell-like tones in a low-fidelity recording.<br>
                         2. 6–10s: Gentle music box melodies ring out with delicate bell chimes.<br>
@@ -833,7 +858,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -841,7 +866,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -849,7 +874,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -860,20 +885,25 @@
                 </tr>
               </tbody>
             </table>
-            
+
             <table class="table" align="center" style="table-layout: fixed;word-break:break-word">
               <thead>
                 <tr>
                   <th scope="col" colspan="5" width="100%">
-                    <font color="061E61">Prompt: This is an instrumental cover of a ballad piece. The harp is gently playing the melody with improvisational touches differing from the original version. There is a calming and soothing atmosphere to this piece. This music could be playing in the background at a hotel or a spa resort.</font>
+                    <font color="061E61">Prompt: This is an instrumental cover of a ballad piece. The harp is gently
+                      playing the melody with improvisational touches differing from the original version. There is a
+                      calming and soothing atmosphere to this piece. This music could be playing in the background at a
+                      hotel or a spa resort.</font>
                     <details>
-                      <summary style="cursor: pointer; text-decoration: underline; color: #FF0000;">Planning Sub-Prompt</summary>
+                      <summary style="cursor: pointer; text-decoration: underline; color: #FF0000;">Planning Sub-Prompt
+                      </summary>
                       <font color="061E61">
                         1. 0–6s: A solo harp plays a soft and flowing melody, evoking a gentle ballad style.<br>
                         2. 6–10s: The harp introduces subtle improvisations with delicate rhythmic changes.<br>
                         3. 10–16s: Expressive harp flourishes add a personal touch to the familiar ballad theme.<br>
                         4. 16–20s: Warm harp tones resonate with relaxed timing and spontaneous melodic turns.<br>
-                        5. 20–26s: Ambient harp phrases unfold in a peaceful space, suggesting a live spa or hotel performance.<br>
+                        5. 20–26s: Ambient harp phrases unfold in a peaceful space, suggesting a live spa or hotel
+                        performance.<br>
                       </font>
                     </details>
                   </th>
@@ -902,7 +932,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -910,7 +940,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -918,7 +948,7 @@
                       </audio>
                     </div>
                   </th>
-                
+
                   <th scope="row" style="text-align: center;">
                     <div>
                       <audio controls style="width: 90%;">
@@ -929,12 +959,27 @@
                 </tr>
               </tbody>
             </table>
-            
+
           </section>
         </article>
+        
       </main>
-    
-      
+      <br>
+      <hr>
+      <br>
+
+      <p align="center">
+        <font color="#061E61" size="5.5"><b>BibTex</b></font>
+      </p>
+
+      <pre style="font-size:18px;">
+@inproceedings{jiang2025freeaudio,
+  title     = {FreeAudio: Training-Free Timing Planning for Controllable Long-Form Text-to-Audio Generation},
+  author    = {Yuxuan Jiang and Zehua Chen and Zeqian Ju and Chang Li and Weibei Dou and Jun Zhu},
+  booktitle = {Proceedings of the 2025 ACM International Conference on Multimedia (ACM MM)},
+  year      = {2025}
+}
+      </pre>
 
     </div>
 
